@@ -1,8 +1,13 @@
+import os
+
 from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
 
 client = OpenAI(
     # This is the default and can be omitted
-    api_key='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',
+    api_key=os.getenv("OPEN_API_KEY"),
 )
 
 # model
