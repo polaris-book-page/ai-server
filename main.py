@@ -14,17 +14,19 @@ client = OpenAI(
 model = "gpt-3.5-turbo"
 
 # query, message
+user_category = "로맨스"
 messages = [
     {"role": "system", "content": "You should help recommend books."},
     {"role": "system", "content": "You must answer in Korean."},
-    {"role": "user", "content": "SF소설 책 추천해줘."}
+    {"role": "user", "content":  user_category + "책 4권 추천해줘. 이전에 추천한 책은 추천하지마. 최근 책으로 추천해줘"},
+    {"role": "assistant", "content":  "책 이름만 써줘. 이전에 추천한 책은 추천하지마."},
 ]
 
 # response
 response = client.chat.completions.create(
     model=model,
     messages=messages,
-    temperature=0.3,
+    temperature=0.2,
 )
 
 # answer
