@@ -42,7 +42,12 @@ try:
     #print(res_review)
 
     res_book = list(coll_book.find({}, proj_book))
-    print(res_book)
+    #print(res_book)
+
+    df_book = pd.DataFrame(res_book)
+    df_review = pd.DataFrame(res_review)
+    df_book.to_csv('book.csv', encoding='utf-8-sig')
+    df_review.to_csv('review.csv', encoding='utf-8-sig')
 
     # end example code here
     client.close()
