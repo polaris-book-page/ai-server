@@ -6,8 +6,7 @@ import numpy as np
 
 load_dotenv()
 
-
-if __name__ == '__main__':
+def load_data():
     try:
         # mongoDB 연결
         uri = os.getenv("MONGO_URI")
@@ -57,3 +56,10 @@ if __name__ == '__main__':
     except Exception as e:
         raise Exception(
             "The following error occurred: ", e)
+
+
+if __name__ == '__main__':
+    # load data
+    load_data()
+
+    # preprocessing
