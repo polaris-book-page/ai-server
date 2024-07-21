@@ -47,8 +47,8 @@ def load_data():
 
         df_book = pd.DataFrame(res_book)
         df_review = pd.DataFrame(res_review)
-        df_book.to_csv('book.csv', encoding='utf-8-sig')
-        df_review.to_csv('review.csv', encoding='utf-8-sig')
+        df_book.to_csv('data/book.csv', encoding='utf-8-sig')
+        df_review.to_csv('data/review.csv', encoding='utf-8-sig')
 
         # end example code here
         client.close()
