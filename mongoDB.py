@@ -36,6 +36,7 @@ def load_data():
             "writer": 1,
             "category": 1,
             "field": 1,
+            "bookImage": 1,
             "_id": 0
         }
 
@@ -85,6 +86,7 @@ def preprocessing(raw_book, raw_review):
 def recommend(userId):
     df_book = pd.read_csv('data/book.csv',  encoding='utf-8')
     df_review = pd.read_csv('data/review.csv',  encoding='utf-8')
+    df_book = df_book.drop(columns=['Unnamed: 0'])
 
     sorted_review = df_review.sort_values(by='evaluation', ascending=False)
     
@@ -112,10 +114,9 @@ def recommend(userId):
     recommend_books_arr = []
     for i in range(4):
         filtered_data = df_book[(df_book['category'] == ran_category_field.category.iloc[i]) & (df_book['field'] == ran_category_field.field.iloc[i])]
-        filtered_data = filtered_data.drop(columns=['Unnamed: 0.1', 'Unnamed: 0'])
         recommend_book = filtered_data.sample(n=1)
         recommend_books_arr.append({"isbn": str(recommend_book.isbn.iloc[0]), "title": recommend_book.title.iloc[0], "writer": recommend_book.writer.iloc[0],
-                                    "category": recommend_book.category.iloc[0], "field": recommend_book.field.iloc[0]})
+                                    "category": recommend_book.category.iloc[0], "field": recommend_book.field.iloc[0], "bookImage": recommend_book.bookImage.iloc[0]})
         
     return recommend_books_arr
 
