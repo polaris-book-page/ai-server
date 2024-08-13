@@ -3,3 +3,4 @@
 polaris-venv
 .idea
 .env
+/data
