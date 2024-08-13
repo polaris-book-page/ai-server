@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 from flask_restx import Api
-from flask_CORS import CORS
+from flask_cors import CORS
 
 from recommend_books import RecommendBooks
 
