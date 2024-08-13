@@ -12,7 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 api = Api(app, version='0.0.1')
 
-CORS(app, origins=["https://polaris-book.vercel.app/", "http://localhost:3000/"])
+CORS(app, origins=["https://polaris-book.vercel.app", "http://localhost:3000"])
 
 api.add_namespace(RecommendBooks, '/recommend_books')
 
